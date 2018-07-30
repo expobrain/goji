@@ -62,6 +62,14 @@ impl Sprints {
             .get::<SprintResults>("agile", path.join("?").as_ref())
     }
 
+    /// returns a single sprint data
+    /// https://docs.atlassian.com/jira-software/REST/7.3.1/#agile/1.0/sprint-getSprint
+    pub fn get(&self, sprint_id: u64) -> Result<Sprint> {
+        let path = format!("/sprint/{}", sprint_id);
+
+        self.jira.get::<Sprint>("agile", &path)
+    }
+
     /// move issues into sprint
     /// https://docs.atlassian.com/jira-software/REST/7.3.1/#agile/1.0/sprint-moveIssuesToSprint
     pub fn move_issues(&self, sprint_id: u64, issues: Vec<String>) -> Result<EmptyResponse> {
