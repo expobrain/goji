@@ -1,6 +1,6 @@
 //! Interfaces for accessing and managing the backlog
 
-use {EmptyResponse, Jira, Result};
+use crate::{EmptyResponse, Jira, Result};
 
 #[derive(Debug, Serialize)]
 struct BacklogIssues {
